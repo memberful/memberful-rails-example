@@ -6,7 +6,9 @@ class SessionsController < ApplicationController
 
   def create
     auth = request.env["omniauth.auth"]
-    user = find_user_with_omniauth(auth) || create_with_omniauth(auth)
+    user = find_user_with_omniauth(auth) || User.new
+    user.attributes_from_omniauth = auth
+    user.save
     reset_session
     session[:user_id] = user.id
     redirect_to root_url, :notice => welcome_message(user)

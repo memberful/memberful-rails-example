@@ -17,16 +17,15 @@ module OmniAuth
 
       # For more info, see https://github.com/intridea/omniauth/wiki/Auth-Hash-Schema
 
-      uid { raw_info["id"] }
+      uid { member_info["id"] }
 
       info do
         prune!({
-          "nickname" => raw_info["username"],
-          "name" => raw_info["full_name"],
-          "email" => raw_info["email"],
-          "location" => raw_info["address"],
-          "first_name" => raw_info["first_name"],
-          "last_name" => raw_info["last_name"]
+          "nickname" => member_info["username"],
+          "name" => member_info["full_name"],
+          "email" => member_info["email"],
+          "first_name" => member_info["first_name"],
+          "last_name" => member_info["last_name"]
         })
       end
 
@@ -36,17 +35,19 @@ module OmniAuth
         })
       end
 
-      def raw_info
-        @raw_info ||= raw_credentials_json["member"]
-      end
-
       protected
 
-      def raw_credentials_json
-        @raw_credentials_json ||= begin
-                                    access_token.options[:mode] = :query
-                                    access_token.get("/account.json").parsed
-                                  end
+      def raw_info
+        @raw_info ||= retrieve_account_info
+      end
+
+      def member_info
+        raw_info["member"]
+      end
+
+      def retrieve_account_info
+        access_token.options[:mode] = :query
+        access_token.get("/account.json").parsed
       end
 
       def prune!(hash)

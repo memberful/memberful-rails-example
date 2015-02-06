@@ -10,18 +10,25 @@ class User < ActiveRecord::Base
     end
   end
 
-  def self.create_with_omniauth(auth)
-    Rails.logger.info "New user from auth hash:\n#{auth.inspect}"
-    create! do |user|
-      user.uid = auth.uid
-      user.provider = auth.provider
-      if info = auth.info
-        user.username = info.nickname
-        user.name = info.name
-        user.first_name = info.first_name
-        user.last_name = info.last_name
-        user.email = info.email
-      end
+  def attributes_from_omniauth=(auth)
+    self.uid ||= auth.uid
+    self.provider ||= auth.provider
+
+    if info = auth.info
+      self.username = info.nickname
+      self.name = info.name
+      self.first_name = info.first_name
+      self.last_name = info.last_name
+      self.email = info.email
+    end
+
+    if extra = auth.extra and
+      raw_info = extra.raw_info and
+      member = raw_info.member
+
+      self.membership_created_at = Time.at(member.created_at)
+      self.unrestricted_access = member.unrestricted_access
+      self.stripe_customer_id = member.stripe_customer_id
     end
   end
 
