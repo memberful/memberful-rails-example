@@ -4,17 +4,13 @@ require "omniauth-oauth2"
 module OmniAuth
   module Strategies
     class Memberful < OmniAuth::Strategies::OAuth2
-      DEFAULT_SCOPE = "user"
-      OMNIAUTH_PROVIDER_SITE = ENV.fetch("OMNIAUTH_PROVIDER_SITE") { "https://rosskaff-example.memberful.com" }
-      OMNIAUTH_AUTHORIZE_URL = ENV.fetch("OMNIAUTH_AUTHORIZE_URL") { "https://rosskaff-example.memberful.com/oauth" }
-      OMNIAUTH_TOKEN_URL     = ENV.fetch("OMNIAUTH_TOKEN_URL") { "https://rosskaff-example.memberful.com/oauth/token" }
 
       option :name, "memberful"
 
       option :client_options, {
-        :site => OMNIAUTH_PROVIDER_SITE,
-        :authorize_url => OMNIAUTH_AUTHORIZE_URL,
-        :token_url => OMNIAUTH_TOKEN_URL
+        :site => ENV.fetch("MEMBERFUL_SITE") { "https://yoursite.memberful.com" },
+        :authorize_url => "/oauth",
+        :token_url => "/oauth/token"
       }
 
       option :authorize_options, [:scope]
