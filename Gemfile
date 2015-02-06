@@ -18,6 +18,7 @@ gem 'omniauth-oauth2'
 
 gem 'pg'
 gem 'puma'
+gem 'devise'
 
 gem 'pundit'
 gem 'simple_form'
@@ -40,6 +41,7 @@ end
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'seed-fu'
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'pry-byebug'

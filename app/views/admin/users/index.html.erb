@@ -1,0 +1,22 @@
+<h2>Registered Users</h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Unrestricted Access?</th>
+    <th>Memberful ID</th>
+    <th>Stripe ID</th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.username %></td>
+      <td><%= user.email %></td>
+      <td><%= user.unrestricted_access %></td>
+      <td><%= user.uid %></td>
+      <td><%= user.stripe_customer_id %></td>
+    </tr>
+  <% end %>
+</table>
