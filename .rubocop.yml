@@ -8,3 +8,72 @@ AllCops:
    - 'db/seeds.rb'
    - 'db/schema.rb'
    - 'vendor/bundle/**/*'
+
+Metrics/LineLength:
+  Max: 150 # TODO: we should decrease this to 120
+
+Metrics/ClassLength:
+  Max: 300
+
+Metrics/MethodLength:
+  Max: 25
+
+Metrics/ParameterLists:
+  Max: 8
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: true
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Style/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+
+Style/AndOr:
+  Enabled: false
+
+Style/Not:
+  Enabled: false
+
+Documentation:
+  Enabled: false # TODO: Enable again once we have more docs
+
+Style/CaseIndentation:
+  IndentWhenRelativeTo: case
+  SupportedStyles:
+    - case
+    - end
+  IndentOneStep: false
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%w': "[]"
+    '%W': "[]"
+
+Style/AccessModifierIndentation:
+  EnforcedStyle: indent
+
+Style/SignalException:
+  Enabled: false
+
+Style/IndentationWidth:
+  Enabled: false
+
+Lint/EndAlignment:
+  AlignWith: variable
+
+Lint/DefEndAlignment:
+  Enabled: false
+
+Lint/HandleExceptions:
+  Enabled: false

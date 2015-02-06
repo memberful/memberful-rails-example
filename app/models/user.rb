@@ -11,11 +11,16 @@ class User < ActiveRecord::Base
   end
 
   def self.create_with_omniauth(auth)
+    Rails.logger.info "New user from auth hash:\n#{auth.inspect}"
     create! do |user|
-      user.provider = auth['provider']
-      user.uid = auth['uid']
-      if auth['info']
-         user.name = auth['info']['name'] || ""
+      user.uid = auth.uid
+      user.provider = auth.provider
+      if info = auth.info
+        user.username = info.nickname
+        user.name = info.name
+        user.first_name = info.first_name
+        user.last_name = info.last_name
+        user.email = info.email
       end
     end
   end

@@ -35,8 +35,9 @@ module MemberfulExample
     # For Foundation 5
     config.assets.precompile += %w( vendor/modernizr )
 
-
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.paths.add "lib", eager_load: true
   end
 end

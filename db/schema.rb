@@ -17,12 +17,18 @@ ActiveRecord::Schema.define(version: 20150206144842) do
   enable_extension "plpgsql"
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "provider"
     t.string   "uid"
+    t.string   "provider"
+    t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "username"
+    t.string   "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "role"
   end
+
+  add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", using: :btree
 
 end
