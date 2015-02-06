@@ -1,1 +1,8 @@
 <h3>Welcome</h3>
+
+<% if user_signed_in? %>
+  You are signed in as <%= current_user.name %>
+<% else %>
+  <%= link_to "Join now to get access", memberful_signup_path, class: "button" %> <br/>
+  <%= link_to "Already have an account? Sign in", signin_path %>
+<% end %>
