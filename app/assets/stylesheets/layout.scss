@@ -1,0 +1,89 @@
+@import "foundation";
+
+@mixin twelve-columns {
+  @extend .small-12;
+  @extend .columns;
+}
+
+@mixin six-columns-centered {
+  @extend .small-6;
+  @extend .columns;
+  @extend .text-center;
+}
+
+// create your own classes
+// to make views framework-neutral
+.column {
+  @include six-columns-centered;
+}
+.form {
+  @include grid-column(6);
+}
+.form-centered {
+  @include six-columns-centered;
+}
+.submit {
+  @extend .button;
+  @extend .radius;
+}
+
+[role="main"] {
+  @include twelve-columns;
+  padding: 1em 0;
+  background-color: white;
+}
+section {
+  @extend .row;
+  margin-top: 20px;
+}
+
+.top-bar .name {
+  font-size: rem-calc(13);
+  line-height: 45px;
+}
+.top-bar .name a {
+  font-weight: normal;
+  color: white;
+  padding: 0 15px;
+}
+
+.authform {
+  padding-top: 30px;
+  max-width: 320px;
+  margin: 0 auto;
+}
+.authform form {
+  @include panel();
+  padding-bottom: 60px;
+}
+.authform form a {
+  font-size: rem-calc(13);
+}
+.authform form p {
+  font-size: rem-calc(13);
+}
+.authform .form-group {
+  // for Bootstrap, not used for Foundation
+}
+.authform .form-control {
+  // for Bootstrap, not used for Foundation
+}
+.authform .checkbox {
+  // for Bootstrap, not used for Foundation
+}
+.authform fieldset {
+  @include panel();
+}
+.authform #error_explanation {
+  @extend .alert-box;
+  @extend .alert;
+}
+.authform #error_explanation h2 {
+  font-size: rem-calc(16);
+  color: white;
+}
+.button-xs {
+  @extend .button;
+  @extend .radius;
+  @extend .tiny;
+}
