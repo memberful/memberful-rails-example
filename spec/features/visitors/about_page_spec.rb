@@ -1,16 +1,10 @@
-# Feature: 'About' page
-#   As a visitor
-#   I want to visit an 'about' page
-#   So I can learn more about the website
-feature 'About page' do
+require "rails_helper"
 
-  # Scenario: Visit the 'about' page
-  #   Given I am a visitor
-  #   When I visit the 'about' page
-  #   Then I see "About the Website"
-  scenario 'Visit the about page' do
-    visit 'pages/about'
-    expect(page).to have_content 'About the Website'
+feature "About page" do
+
+  scenario "Visit the about page" do
+    visit "pages/about"
+    expect(page).to have_content "About the Website"
   end
 
 end

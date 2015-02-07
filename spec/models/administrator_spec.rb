@@ -1,5 +1,7 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Administrator, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:administrator) { build(:administrator) }
+
+  it { expect(administrator.email).to match(/@example.com/) }
 end

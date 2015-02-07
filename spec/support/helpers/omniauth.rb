@@ -2,17 +2,35 @@ module Omniauth
 
   module Mock
     def auth_mock
-      OmniAuth.config.mock_auth[:twitter] = {
-        'provider' => 'twitter',
-        'uid' => '123545',
-        'user_info' => {
-          'name' => 'mockuser'
+      OmniAuth.config.mock_auth[:memberful] = OmniAuth::AuthHash.new({
+        "provider" => "memberful",
+        "uid" => 56586,
+        "info" => {
+          "nickname" => "rossta",
+          "email" => "rossta@example.com",
+          "first_name" => "Ross",
+          "last_name" => "Kaffenberger",
+          "full_name" => "Ross Kaffenberger"
         },
-        'credentials' => {
-          'token' => 'mock_token',
-          'secret' => 'mock_secret'
+        "credentials" => {
+          "token" => "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "refresh_token" => "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "expires_at" => 1423245169,
+          "expires" => true
+        },
+        "extra" => {
+          "raw_info" => {
+            "id" => 98765,
+            "username" => "rossta",
+            "email" => "rossta@example.com",
+            "first_name" => "Ross",
+            "last_name" => "Kaffenberger",
+            "full_name" => "Ross Kaffenberger",
+            "unrestricted_access" => false,
+            "created_at" => 1423242398
+          }
         }
-      }
+      })
     end
   end
 

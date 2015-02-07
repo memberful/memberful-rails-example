@@ -1,13 +1,7 @@
-describe User do
+require "rails_helper"
 
-  before(:each) { @user = FactoryGirl.create(:user) }
+RSpec.describe User do
+  let(:user) { build(:user) }
 
-  subject { @user }
-
-  it { should respond_to(:name) }
-
-  it "#name returns a string" do
-    expect(@user.name).to match 'Test User'
-  end
-
+  it { expect(user.name).to match "Test User" }
 end

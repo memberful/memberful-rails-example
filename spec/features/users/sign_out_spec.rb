@@ -1,17 +1,11 @@
-# Feature: Sign out
-#   As a user
-#   I want to sign out
-#   So I can protect my account from unauthorized access
-feature 'Sign out', :omniauth do
+require "rails_helper"
 
-  # Scenario: User signs out successfully
-  #   Given I am signed in
-  #   When I sign out
-  #   Then I see a signed out message
-  scenario 'user signs out successfully' do
+RSpec.feature "Sign out", :omniauth do
+
+  scenario "user signs out successfully" do
     signin
-    click_link 'Sign out'
-    expect(page).to have_content 'Signed out'
+    click_link "Sign out"
+    expect(page).to have_content "Signed out"
   end
 
 end

@@ -1,1 +1,1 @@
-require 'pundit/rspec'
+require "pundit/rspec"

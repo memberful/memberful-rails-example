@@ -1,7 +1,9 @@
-describe SessionsController, :omniauth do
+require "rails_helper"
+
+RSpec.describe SessionsController, :omniauth do
 
   before do
-    request.env['omniauth.auth'] = auth_mock
+    request.env["omniauth.auth"] = auth_mock
   end
 
   describe "#create" do
