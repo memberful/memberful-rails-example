@@ -2,8 +2,6 @@
   "name": "dsl-generated dependencies",
   "dependencies": {
     "normalize-css": "latest",
-    "underscore": "latest",
-    "d3": "latest",
     "components-font-awesome": "latest"
   }
 }
