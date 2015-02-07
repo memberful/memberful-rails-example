@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
-
   def new
-    redirect_to '/auth/memberful'
+    redirect_to "/auth/memberful"
   end
 
   def create
@@ -11,16 +10,16 @@ class SessionsController < ApplicationController
     user.save
     reset_session
     session[:user_id] = user.id
-    redirect_to root_url, :notice => welcome_message(user)
+    redirect_to root_url, notice: welcome_message(user)
   end
 
   def destroy
     reset_session
-    redirect_to root_url, :notice => 'Signed out!'
+    redirect_to root_url, notice: "Signed out!"
   end
 
   def failure
-    redirect_to root_url, :alert => "Authentication error: #{params[:message].humanize}"
+    redirect_to root_url, alert: "Authentication error: #{params[:message].humanize}"
   end
 
   private
@@ -41,5 +40,4 @@ class SessionsController < ApplicationController
       "Welcome back, #{user.first_name}!"
     end
   end
-
 end
