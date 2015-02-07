@@ -1,8 +1,8 @@
 module Omniauth
-
   module Mock
+    # rubocop: disable Style/NumericLiterals, Metrics/MethodLength
     def auth_mock
-      OmniAuth.config.mock_auth[:memberful] = OmniAuth::AuthHash.new({
+      OmniAuth.config.mock_auth[:memberful] = OmniAuth::AuthHash.new(
         "provider" => "memberful",
         "uid" => 56586,
         "info" => {
@@ -30,8 +30,9 @@ module Omniauth
             "created_at" => 1423242398
           }
         }
-      })
+      )
     end
+    # rubocop: enable Style/NumericLiterals, Metrics/MethodLength
   end
 
   module SessionHelpers
@@ -42,5 +43,4 @@ module Omniauth
       click_link "Sign in"
     end
   end
-
 end

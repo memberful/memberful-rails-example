@@ -45,8 +45,11 @@ Style/AndOr:
 Style/Not:
   Enabled: false
 
+Style/SingleSpaceBeforeFirstArg:
+  Enabled: false
+
 Documentation:
-  Enabled: false # TODO: Enable again once we have more docs
+  Enabled: false
 
 Style/CaseIndentation:
   IndentWhenRelativeTo: case
