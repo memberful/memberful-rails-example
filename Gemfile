@@ -13,8 +13,7 @@ gem "turbolinks"
 gem "bower-rails"
 
 gem "high_voltage"
-gem "omniauth"
-gem "omniauth-oauth2"
+gem "omniauth-memberful"
 
 gem "pg"
 gem "puma"
